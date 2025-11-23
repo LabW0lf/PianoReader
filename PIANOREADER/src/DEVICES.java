@@ -14,9 +14,20 @@ public class DEVICES {
 
     // updates the list of all available midi devices
     private static void findMidiDevices() {
-        // get all available Midi Devices
+        // get all available Midi Devices in an array first
         MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
-        MIDI_DEVICES.addAll(Arrays.asList(infos));
+
+        // get rid of devices that do not have transmitters
+        for (int x = 0; x < infos.length; x++) {
+            try {
+                if (MidiSystem.getMidiDevice(infos[x]).getMaxTransmitters() != 0) {
+                    MIDI_DEVICES.add(infos[x]);
+                }
+            }
+            catch (MidiUnavailableException _) {
+                // do nothing
+            }
+        }
     }
 
     // outputs all available midi devices with their corresponding details

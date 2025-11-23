@@ -10,7 +10,7 @@ my own RD-88 stage piano! Any other type of midi device
 is not ideal and not meant for this program. I highly
 recommend testing your midi device in a DAW first (preferably 
 [CakeWalk](https://www.cakewalk.com/sonar) or FL Studio)
-if not done already. 
+if not done already. Configurations can be made in PianoReader.java
 ---
 
 ## What my program does

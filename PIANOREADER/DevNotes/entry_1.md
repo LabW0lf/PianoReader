@@ -16,7 +16,7 @@ played on a midi piano more specifically my stage piano RD-88
 and display the corresponding note or chord in realtime. I'm also planing on maybe
 adding a song detection system, that tries to figure out what song the user
 might be playing at the given time. At the moment, I'm thinking on making 2
-modes for notes and chords detection and song detection. Ideas on how to implement
+modes for notes and chords detection and song detection. Thinking of ideas on how to implement
 song detection is still on the run!
 
 ---
@@ -29,7 +29,8 @@ song detection is still on the run!
 - holds a method that if called, outputs all available midi devices along with all the additional details
 - cannot be instantiated from outside
 
-Responsible for finding connected, detected and available midi devices.
+Responsible for finding connected, detected and available midi devices. It also sorts
+out devices that do not possess transmitters which are essential for getting data.
 
 #### created class MENU
 - uses the [javax.swing package](https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html)
@@ -38,6 +39,14 @@ Responsible for finding connected, detected and available midi devices.
 This class simply starts the whole program by creating a window and 
 displaying the given data. Currently, it has a minimalistic design and I will
 most definitely improve it after finishing backend.
+
+#### created class PianoReaderUI
+- holds a method for getting the device
+- holds a method that lets the user select a midi device
+- cannot be instantiated
+- starts communication
+
+An experienced user interface for choosing a midi device and starting communication. 
 
 
 
