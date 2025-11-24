@@ -23,7 +23,6 @@ I'm thinking on making a config file for that later on.
 - holds essential infos for the map
 - private method that sets notes for the map
 
----
 
 ### Logic and how the map elements work:
 
@@ -33,7 +32,7 @@ I'm thinking on making a config file for that later on.
     60="c3" 
 &rarr; c natural in third octave
 
-    61="c#3/db3"
+    61="c#/db3"
 &rarr; c sharp in third octave OR d flat in third octave;
 
     62="d3"
@@ -45,4 +44,16 @@ As you might have already noticed, I've implemented enharmonic equalism
 where a note, can have alternative names. There is also double flat or double sharp
 however I will stick to enharmonics exclusively for the black keys only because of simplicity reasons. 
 
+---
+
+#### made an executable bat file next to readme for a more convenient user interface environment.
+- simply starts the whole program in a cmd window
+
+#### created class NOTES
+
+- holds the note that is currently being held down
+- holds the map of all notes with their key number
+- holds method that simply formats the result of the note
+
+This class was specifically created for when only 1 key is pressed or held down.
 
