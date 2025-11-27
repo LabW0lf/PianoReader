@@ -14,8 +14,16 @@ public class PianoReaderUI {
             System.out.println("DEVICES:");
             DEVICES.getMidiDevices();
 
-            // input
-            System.out.print("Please enter your device name: ");
+            int found_devices = DEVICES.MIDI_DEVICES.size();
+            if (found_devices == 1) {
+                System.out.println(found_devices + " device detected!");
+            } else {
+                System.out.println(found_devices + " devices detected!");
+            }
+            System.out.println();
+
+
+            System.out.print("\u001B[35m>\u001B[0m ");
             String user_input = scanner.nextLine();
 
             // go through the list of devices
@@ -52,11 +60,20 @@ public class PianoReaderUI {
                     // to keep the program running
                     Thread.sleep(Long.MAX_VALUE);
                 }
+
+                // I see a potencial for custom exceptions here
                 catch (MidiUnavailableException e) {
-                    System.out.println("ERROR: Midi device is found but is not available!");
+                    System.out.println("\u001B[31 ERROR: Midi device is found but is not available!\u001B[0");
                 }
                 catch (InterruptedException e) {
-                    System.out.println("STOPPED: program got interrupted!");
+                    System.out.println("\u001B[31mSTOPPED: Program got interrupted!\u001B[0m");
+                }
+            } else {
+                if (COMMANDS.isCommand(user_input)) {
+                    COMMANDS.runCommand(user_input);
+                } else {
+                    System.out.println("\u001B[36mRETRY: Device not found!\u001B[0m");
+                    System.out.println();
                 }
             }
         }

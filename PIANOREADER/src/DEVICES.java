@@ -20,7 +20,7 @@ public class DEVICES {
         // get rid of devices that do not have transmitters
         for (int x = 0; x < infos.length; x++) {
             try {
-                if (MidiSystem.getMidiDevice(infos[x]).getMaxTransmitters() != 0) {
+                if (MidiSystem.getMidiDevice(infos[x]).getMaxTransmitters() != 0 && !MIDI_DEVICES.contains(infos[x])) {
                     MIDI_DEVICES.add(infos[x]);
                 }
             }
